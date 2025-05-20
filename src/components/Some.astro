@@ -5,31 +5,71 @@
 
 <div class="community_container">
   <div class="box1">
-    <img src="public/svg/logo.svg" alt="Logo" />
-    <img src="public/community/post1.webp" alt="Instagram" />
-    <img src="publiv/svg/heart.svg" alt="Like" />
-    <img src="public/svg/save.svg" alt="Save" />
+    <div id="logo_container">
+      <div id="logo_sprite"></div>
+    </div>
+    <div>
+      <img src="public/community/post1.webp" alt="Instagram" />
+    </div>
+    <div class="flex">
+      <div id="heart_container">
+        <div id="heart_sprite"></div>
+      </div>
+      <div id="save_container">
+        <div id="save_sprite"></div>
+      </div>
+    </div>
   </div>
 
   <div class="box2">
-    <img src="public/svg/logo.svg" alt="Logo" />
-    <img src="public/community/post2.webp" alt="Instagram" />
-    <img src="publiv/svg/heart.svg" alt="Like" />
-    <img src="public/svg/save.svg" alt="Save" />
+    <div id="logo_container">
+      <div id="logo_sprite"></div>
+    </div>
+    <div>
+      <img src="public/community/post2.webp" alt="Instagram" />
+    </div>
+    <div class="flex">
+      <div id="heart_container">
+        <div id="heart_sprite"></div>
+      </div>
+      <div id="save_container">
+        <div id="save_sprite"></div>
+      </div>
+    </div>
   </div>
 
   <div class="box3">
-    <img src="public/svg/logo.svg" alt="Logo" />
-    <img src="public/community/post3.webp" alt="Instagram" />
-    <img src="publiv/svg/heart.svg" alt="Like" />
-    <img src="public/svg/save.svg" alt="Save" />
+    <div id="logo_container">
+      <div id="logo_sprite"></div>
+    </div>
+    <div>
+      <img src="public/community/post3.webp" alt="Instagram" />
+    </div>
+    <div class="flex">
+      <div id="heart_container">
+        <div id="heart_sprite"></div>
+      </div>
+      <div id="save_container">
+        <div id="save_sprite"></div>
+      </div>
+    </div>
   </div>
 
   <div class="box4">
-    <img src="public/svg/logo.svg" alt="Logo" />
-    <img src="public/community/post4.webp" alt="Instagram" />
-    <img src="publiv/svg/heart.svg" alt="Like" />
-    <img src="public/svg/save.svg" alt="Save" />
+    <div id="logo_container">
+      <div id="logo_sprite"></div>
+    </div>
+    <div>
+      <img src="public/community/post4.webp" alt="Instagram" />
+    </div>
+    <div class="flex">
+      <div id="heart_container">
+        <div id="heart_sprite"></div>
+      </div>
+      <div id="save_container">
+        <div id="save_sprite"></div>
+      </div>
+    </div>
   </div>
 
   <style>
@@ -47,25 +87,66 @@
     .community_container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 20px;
+      gap: 28px;
     }
-
-    @media (min-width: 800px) {
-      .box1,
+    @media (max-width: 800px) {
+      .community_container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
       .box2,
       .box3,
       .box4 {
-        background-color: var(--secondary);
-        color: var(--secondary);
-        height: 60px;
-        width: 250px;
-        border: 2px solid var(--tetiary);
-        box-shadow: 10px 10px lightgray;
-        margin-top: 40px;
-        align-items: center; /* Centrer vertikalt */
-        display: flex;
-        justify-content: center; /* Centrer horisontalt */
+        visibility: hidden;
+        height: 0;
+        width: 0;
       }
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+      display: grid;
+      grid-column: auto;
+    }
+
+    #heart_container {
+      width: 10%;
+      aspect-ratio: 500/500;
+    }
+    #save_container {
+      width: 10%;
+      aspect-ratio: 500/500;
+    }
+    #logo_container {
+      width: 15%;
+      aspect-ratio: 500/500;
+    }
+
+    #heart_sprite {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-image: url(public/svg/heart.svg);
+    }
+    #save_sprite {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-image: url(public/svg/save.svg);
+    }
+    #logo_sprite {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-image: url(public/svg/logo.svg);
+    }
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
     }
   </style>
 </div>
