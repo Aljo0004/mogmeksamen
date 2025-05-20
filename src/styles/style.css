@@ -32,3 +32,12 @@ h2 {
   margin: 1rem;
   text-align: left;
 }
+
+html {
+  /************************FARVEKODER**************************/
+  --primary: #ffffff;
+  --secondary: #e3ded6;
+  --accent: #e0f1fe;
+  --dark: #343434;
+  --secondarydark: #786355;
+}
