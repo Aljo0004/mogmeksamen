@@ -3,7 +3,38 @@ import Navigation from "./Navigation.astro";
 ---
 
 <header>
-  <Navigation />
-</header>
+  <div class="headerimage">
+    <img class="headerlogo" src="public/svg/mullersandmore.svg" alt="logo" />
+  </div>
 
-<style></style>
+  <div class="navigationplace">
+    <Navigation />
+  </div>
+
+  <style>
+    header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #ffffff;
+    }
+
+    .headerlogo {
+      max-width: 50%;
+      height: auto;
+    }
+    .headerimage {
+      grid-column: 2/3;
+      text-align: center;
+    }
+
+    .navigationplace {
+      padding-top: 10px;
+      grid-column: 3/4;
+    }
+  </style>
+</header>
