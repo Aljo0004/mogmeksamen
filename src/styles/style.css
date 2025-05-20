@@ -1,0 +1,34 @@
+:root {
+  --primary-font: "Helvetica Neue", sans-serif;
+  --heading-font: "Helvetica Neue", sans-serif;
+  --text-color: #343434;
+  --background-color: #ffffff;
+
+  --h1-desktop-size: 3rem;
+  --h1-mobile-size: 2.5rem;
+  --h2-desktop-size: 2rem;
+  --h2-mobile-size: 1.8rem;
+  --p-size: 1rem;
+}
+
+body {
+  font-family: var(--primary-font);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: var(--h1-mobile-size);
+  margin: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--h2-mobile-size);
+  margin: 1rem;
+  text-align: left;
+}
