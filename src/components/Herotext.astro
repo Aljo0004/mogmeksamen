@@ -3,17 +3,32 @@ import Headline from "./Headline.astro";
 import Knap from "./Knap.astro";
 ---
 
-<div class="herotextbox">
-  <Headline />
-  <h2>ENAMEL SS25 COLLECTION.</h2>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores odit sint quod excepturi autem enim sit repudiandae. Consequuntur, quam dicta obcaecati itaque quas perspiciatis est culpa mollitia, sapiente nisi exercitationem.</p>
-  <p>Shop Enamel</p>
-  <Knap />
+<div class="herogrid">
+  <div class="herotextbox">
+    <h2 class="enameltext">ENAMEL SS25</h2>
+    <h2 class="collectiontext">COLLECTION.</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores odit sint quod excepturi autem enim sit repudiandae. Consequuntur, quam dicta obcaecati itaque quas perspiciatis est culpa mollitia, sapiente nisi exercitationem.</p>
+    <p>Shop Enamel</p>
+  </div>
 </div>
 
 <style>
   .herotextbox {
     display: flex;
     flex-direction: column;
+    grid-row: 2/3;
+  }
+  .enameltext {
+    font-size: 40px;
+  }
+  .collectiontext {
+    font-size: 60px;
+  }
+  .herogrid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .herotextbox p {
+    padding-left: 20px;
   }
 </style>
