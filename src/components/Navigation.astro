@@ -1,42 +1,129 @@
----
-
----
-
 <nav>
   <ul class="menu">
     <li class="dropdown">
       <a href="#">SHOP</a>
       <ul class="dropdown-content shop-dropdown">
-        <li><img src="public/category/Earring_enamel_gold.webp" alt="" /></li>
-        <li><img src="canon.png" alt="" /></li>
-        <li><img src="canon.png" alt="" /></li>
-        <li><img src="canon.png" alt="" /></li>
-        <li><img src="canon.png" alt="" /></li>
-        <li><img src="canon.png" alt="" /></li>
+        <div class="shop_flex">
+          <div>
+            <div class="shop_overskrift">
+              <h2 class="overskriftoverskrift">ALLE SMYKKER <br /> NYHEDER</h2>
+              <p>KATEGORIER:</p>
+            </div>
+            <div class="shop_options">
+              <div>
+                <p class="categories_p">RINGE</p>
+                <li><img src="public/category/Earring_enamel_gold.webp" alt="g" /></li>
+              </div>
+              <div>
+                <p class="categories_p">ØRERINGE</p>
+                <li><img src="public/category/Earring_enamel_gold.webp" alt="g" /></li>
+              </div>
+              <div>
+                <p class="categories_p">ARMBÅND</p>
+                <li><img src="public/category/Earring_enamel_gold.webp" alt="g" /></li>
+              </div>
+              <div>
+                <p class="categories_p">HALSKÆDER</p>
+                <li><img src="public/category/Earring_enamel_gold.webp" alt="g" /></li>
+              </div>
+              <div>
+                <p class="categories_p">SØLV</p>
+                <li><img src="public/category/Earring_enamel_gold.webp" alt="g" /></li>
+              </div>
+              <div>
+                <p class="categories_p">GULD</p>
+                <li><img src="public/category/Earring_enamel_gold.webp" alt="g" /></li>
+              </div>
+            </div>
+          </div>
+          <img class="shop_img" src="public/category/Ring_sistie_silver-on.webp" alt="blabla" />
+        </div>
       </ul>
     </li>
 
     <li class="dropdown">
       <a href="#">BRANDS</a>
       <ul class="dropdown-content brands-dropdown">
-        <li><img src="public/brand_logo/logo_camillebrinch.webp" alt="" /></li>
-        <li><img src="public/brand_logo/logo_enamel.webp" alt="" /></li>
-        <li><img src="public/brand_logo/logo_janekoenig.webp" alt="" /></li>
-        <li><img src="public/brand_logo/logo_sistie.webp" alt="" /></li>
-        <li><img src="public/brand_logo/logo_sistie.webp" alt="" /></li>
-        <li><img src="public/brand_logo/logo_sistie.webp" alt="" /></li>
+        <div class="brands_dropdown">
+          <li><img src="public/brand_logo/logo_camillebrinch.webp" alt="" /></li>
+          <li><img src="public/brand_logo/logo_enamel.webp" alt="" /></li>
+          <li><img src="public/brand_logo/logo_janekoenig.webp" alt="" /></li>
+          <li><img src="public/brand_logo/logo_sistie.webp" alt="" /></li>
+          <li><img src="public/brand_logo/logo_sistie.webp" alt="" /></li>
+          <li><img src="public/brand_logo/logo_sistie.webp" alt="" /></li>
+        </div>
       </ul>
     </li>
     <li><a href="#">ABOUT US</a></li>
   </ul>
-  <div class="burger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
+  <div class="burgerwrap">
+    <img class="headerlogo" src="public/svg/mullersandmore.svg" alt="logo" />
+
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
   </div>
 </nav>
 
 <style>
+  .burgerwrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .categories_p {
+    text-decoration: underline;
+    text-align: justify;
+  }
+  .dropdown-content .shop_options img {
+    width: 60%;
+    height: auto;
+    align-items: end;
+  }
+  .headerlogo {
+    max-width: 50%;
+    height: auto;
+  }
+  .dropdown-content .shop_img {
+    width: 100%;
+    height: 500px;
+    align-items: center;
+    object-fit: cover;
+  }
+  .shop_overskrift p {
+    font-size: 26px;
+  }
+  .overskriftoverskrift {
+    text-align: left;
+  }
+  .shop_overskrift {
+    padding-left: 90px;
+  }
+  .shop_flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .shop_options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-left: 90px;
+  }
+  .brands_dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .dropdown .brands_dropdown img {
+    border-radius: 50%;
+    width: 150px;
+  }
+
   nav {
     display: flex;
     align-items: center;
@@ -68,6 +155,7 @@
     text-decoration: none;
     transition: color 0.3s;
     text-align: end;
+    height: 100%;
   }
 
   .menu a:hover {
@@ -106,7 +194,7 @@
   }
 
   .dropdown-content img {
-    width: 60px; /* Juster størrelsen her */
+    width: 60px;
     height: auto;
     object-fit: contain;
     transition: transform 0.3s;
@@ -117,27 +205,87 @@
     background-color: #f0f0f0;
   }
 
-  /* Når man hover over .dropdown, vis dropdown-menuen */
   .dropdown:hover .dropdown-content {
-    /* display: block; */
-    display: flex; /* Ændret fra default block/column til række */
+    display: block;
   }
+  @media (max-width: 800px) {
+    .burgerwrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
 
-  .burger {
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-  }
+    .burger {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      display: none;
+    }
+    .headerlogo {
+      width: 50%;
+      height: auto;
+      padding-right: 40px;
+    }
 
-  .burger .line {
-    width: 100%;
-    height: 2px;
-    background-color: #333333;
-    margin-bottom: 5px;
-    transition: 0.2s linear;
-  }
-  .burger {
-    display: none;
+    .dropdown-content .shop_options img {
+      width: 100%;
+      height: auto;
+    }
+    .menu a {
+      display: block;
+      padding: 10px;
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.3s;
+      text-align: end;
+      height: 100%;
+    }
+    .brands_dropdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding: 30px;
+      justify-content: center;
+      margin-left: 40px;
+    }
+    .brands_dropdown img {
+      padding: 30px;
+      align-items: center;
+      width: 50%;
+      height: auto;
+      border-radius: 50%;
+    }
+    .shop_options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      padding-left: 225px;
+    }
+    .shop_options img {
+      width: 50%;
+    }
+    .shop_flex .shop_options .categories_p {
+      font-size: 15px;
+    }
+    .shop_flex .shop_overskrift {
+      padding-left: 225px;
+    }
+
+    .shop_img {
+      display: none;
+    }
+    .burger .line {
+      width: 100%;
+      height: 2px;
+      background-color: #333333;
+      margin-bottom: 5px;
+      transition: 0.2s linear;
+    }
+    .dropdown .dropdown-content {
+      margin-top: 140px;
+    }
   }
   @media screen and (max-width: 800px) {
     .menu {
@@ -181,6 +329,7 @@
     }
   }
 </style>
+
 <script>
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");

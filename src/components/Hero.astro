@@ -17,4 +17,15 @@ import Herotext from "./Herotext.astro";
   .heroimg {
     width: 50%;
   }
+
+  @media (max-width: 800px) {
+    .herosection {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .heroimg {
+      width: 100%;
+    }
+  }
 </style>

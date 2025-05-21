@@ -8,7 +8,7 @@ import Knap from "./Knap.astro";
     <h2 class="enameltext">ENAMEL SS25</h2>
     <h2 class="collectiontext">COLLECTION.</h2>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores odit sint quod excepturi autem enim sit repudiandae. Consequuntur, quam dicta obcaecati itaque quas perspiciatis est culpa mollitia, sapiente nisi exercitationem.</p>
-    <p>Shop Enamel</p>
+    <a href="">SHOP ENAMEL</a>
   </div>
 </div>
 
@@ -30,5 +30,39 @@ import Knap from "./Knap.astro";
   }
   .herotextbox p {
     padding-left: 20px;
+  }
+  .herotextbox a {
+    padding-left: 20px;
+    text-decoration: none;
+    color: #343434;
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid;
+    margin-left: 20px;
+    margin-right: 540px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  @media (max-width: 800px) {
+    .herogrid {
+      display: initial;
+    }
+    .herotextbox a {
+      padding-left: 20px;
+      text-decoration: none;
+      color: #343434;
+      display: inline-block;
+      border-radius: 10px;
+      border: 2px solid;
+      margin-left: 20px;
+      margin-right: 450px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
   }
 </style>
