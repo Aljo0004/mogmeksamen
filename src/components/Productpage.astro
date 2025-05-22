@@ -1,0 +1,72 @@
+<section class="topsection">
+  <button><a href="productlist.astro"></a>TILBAGE</button>
+</section>
+
+<section class="product_section"></section>
+
+<div class="container product_container">
+  <div class="box1">
+    <img src="public/category/Bracelet_cb_silver" alt='Produktid"' />
+  </div>
+
+  <div class="box2">
+    <ul>
+      <li>
+        <h1>Product Navn</h1>
+      </li>
+      <li>
+        <h2>Pris:</h2>
+        <p>555 DKK</p>
+      </li>
+      <li>
+        <h4>Farve:</h4>
+        <p>Sølv</p>
+      </li>
+      <li>
+        <div class="tags-container">
+          <p>Brand, Kategori</p>
+        </div>
+      </li>
+      <li>
+        <h4>Model:</h4>
+        <p>Brand, Modelnavn</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .topsection {
+    background-color: var(---secondary);
+  }
+  .product_section {
+    background-color: var(---primary);
+    margin: 0 5%;
+    padding: 2rem;
+  }
+
+  /***************** BILLEDE BOX *****************/
+  .box1 {
+    background-color: white;
+    color: black;
+  }
+  /****************** TEXT BOX *******************/
+  .box2 {
+    position: relative;
+  }
+  /****************** Grid *************************/
+  @media (min-width: 800px) {
+    .product_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+  @media (max-width: 800px) {
+    .product_container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>
