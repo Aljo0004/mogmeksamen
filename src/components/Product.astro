@@ -1,69 +1,17 @@
 ---
-// ✅ Make the block async to allow top-level await
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const { data, error } = await supabase
-  .from('Smykker')
-  .select('id, image_url, name, price, slug');
-
+const { data, error } = await supabase.from("Smykker").select("id, image_url, name, price, slug");
 ---
-  <<<<<<< product_list
-<div class="productBox">
-  <div class="productImg">
-    <img class="productInnerImg" src="public/category/Bracelet_cb_silver.webp" alt="${data.name}" />
-  </div>
-  <div class="info">
-    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
-    <p class="pris">600 DKK</p>
-  </div>
-  <div class="container">
-    <button><a href="index.html">GO TO TOP</a></button>
-  </div>
-  <div class="container">
-    <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
-  </div>
-</div>
 
-<div class="productBox">
-  <div class="productImg">
-    <img class="productInnerImg" src="public/category/Ring_jk_gold.webp" alt="${data.name}" />
-  </div>
-  <div class="info">
-    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
-    <p class="pris">600 DKK</p>
-  </div>
-  <div class="container">
-    <button><a href="index.html">GO TO TOP</a></button>
-  </div>
-  <div class="container">
-    <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
-  </div>
-</div>
-
-<div class="productBox">
-  <div class="productImg">
-    <img class="productInnerImg" src="public/category/Ring_jk_gold.webp" alt="${data.name}" />
-  </div>
-  <div class="info">
-    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
-    <p class="pris">600 DKK</p>
-  </div>
-  <div class="container">
-    <button><a href="index.html">GO TO TOP</a></button>
-  </div>
-  <div class="container">
-    <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
-  </div>
-</div>
-
-<!-- <a href="product.html?id=${data.id}">
+<a href="product.html?id=${data.id}">
   <div class="productBox">
     <div class="productImg">
-      <img class="productInnerImg" src="public/category/Ring_jk_gold.webp" alt="${data.name}" />
+      <img class="productInnerImg" src="public/category/Bracelet_cb_silver.webp" alt="${data.name}" />
     </div>
     <div class="info">
       <h2 class="productBoxName">ENAMEL EARRINGS</h2>
@@ -76,77 +24,46 @@ const { data, error } = await supabase
       <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
     </div>
   </div>
-</a> -->
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-  }
-  /******************* Productcard *******************/
-  .productBox {
-    position: relative;
-    border-radius: 0px;
-    background-color: #ffffff;
-  }
-  a {
-    text-decoration: none;
-    color: #343434;
-  }
-  .productImg {
-    overflow: hidden;
-    background-color: #e3ded6;
-    width: 100%;
-    max-width: 100%;
-    display: block;
-    height: 450px;
-    object-fit: contain;
-    object-position: center;
-    padding: 10px;
-  }
-  .productInnerImg:hover {
-    scale: 1.1;
-    filter: brightness(1.05);
-    transition: 0.5s;
-  }
-  .info {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: flex-end;
-    justify-content: space-between;
-  }
-  .productBoxName {
-    font-size: 120%;
-  }
-
-  @media (max-width: 800px) {
-    .productInnerImg {
-      scale: 2.4;
-      transform: translate(0, 20%);
-      transition:
-        scale ease-in 0.2s,
-        filter ease-in 0.2s;
+  <style>
+    /******************* STYLE *******************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .productInnerImg:hover {
-      scale: 2.5;
-      filter: brightness(1.05);
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    /******************* Productcard *******************/
+    .productBox {
+      position: relative;
+      border-radius: 0px;
+      background-color: #ffffff;
+    }
+    a {
+      text-decoration: none;
+      color: #343434;
     }
     .productImg {
       overflow: hidden;
-      height: auto;
-      border-radius: 10px;
-    }
-    .productBox {
+      background-color: #e3ded6;
       width: 100%;
+      max-width: 100%;
+      display: block;
+      height: 450px;
+      object-fit: contain;
+      object-position: center;
+      padding: 10px;
+    }
+    .productInnerImg:hover {
+      scale: 1.1;
+      filter: brightness(1.05);
+      transition: 0.5s;
     }
     .info {
       margin-top: 20px;
@@ -155,29 +72,57 @@ const { data, error } = await supabase
       flex-direction: flex-end;
       justify-content: space-between;
     }
-  }
-  /**************** BUTTON ***************** */
-  button {
-    background-color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    border: #ffffff;
-    font-weight: bold;
-  }
+    .productBoxName {
+      font-size: 120%;
+    }
 
-  button a {
-    text-decoration: none;
-    color: #343434;
-  }
-  .button_line {
-    width: 14%;
-    height: 14%;
-  }
+    @media (max-width: 800px) {
+      .productInnerImg {
+        scale: 2.4;
+        transform: translate(0, 20%);
+        transition:
+          scale ease-in 0.2s,
+          filter ease-in 0.2s;
+      }
+      .productInnerImg:hover {
+        scale: 2.5;
+        filter: brightness(1.05);
+      }
+      .productImg {
+        overflow: hidden;
+        height: auto;
+        border-radius: 10px;
+      }
+      .productBox {
+        width: 100%;
+      }
+      .info {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: flex-end;
+        justify-content: space-between;
+      }
+    }
+    /**************** BUTTON ***************** */
+    button {
+      background-color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      border: #ffffff;
+      font-weight: bold;
+    }
 
-  .container {
-    display: flex;
-  }
-</style>
-=======
+    button a {
+      text-decoration: none;
+      color: #343434;
+    }
+    .button_line {
+      width: 14%;
+      height: 14%;
+    }
 
-
-
+    .container {
+      display: flex;
+    }
+  </style>
+</a>
