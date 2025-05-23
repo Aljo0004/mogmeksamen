@@ -1,10 +1,36 @@
+---
+import Product from "./Product.astro";
+---
+
 <section class="topsection">
   <button><a href="productlist.html">TILBAGE</a></button>
 </section>
 
-<section class="productlist_seciton"></section>
+<section class="productlist_seciton">
+  <div class="grid_3">
+    <Product />
+  </div>
+</section>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    height: auto;
+  }
+  @media (max-width: 800px) {
+    .main {
+      margin: 0 2%;
+    }
+    .grid_3 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
   /***************** sections *****************/
   .topsection {
     background-color: #e3ded6;
@@ -38,7 +64,17 @@
     font-weight: bolder;
   }
 
-  /***************** sections *****************/
+  /***************** grid *****************/
+
+  .grid_3 {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
 
   /***************** sections *****************/
 </style>

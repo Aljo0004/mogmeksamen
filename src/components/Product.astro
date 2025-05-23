@@ -11,32 +11,173 @@ const { data, error } = await supabase
   .select('id, image_url, name, price, slug');
 
 ---
+  <<<<<<< product_list
+<div class="productBox">
+  <div class="productImg">
+    <img class="productInnerImg" src="public/category/Bracelet_cb_silver.webp" alt="${data.name}" />
+  </div>
+  <div class="info">
+    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
+    <p class="pris">600 DKK</p>
+  </div>
+  <div class="container">
+    <button><a href="index.html">GO TO TOP</a></button>
+  </div>
+  <div class="container">
+    <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
+  </div>
+</div>
 
-<html>
-  <body>
+<div class="productBox">
+  <div class="productImg">
+    <img class="productInnerImg" src="public/category/Ring_jk_gold.webp" alt="${data.name}" />
+  </div>
+  <div class="info">
+    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
+    <p class="pris">600 DKK</p>
+  </div>
+  <div class="container">
+    <button><a href="index.html">GO TO TOP</a></button>
+  </div>
+  <div class="container">
+    <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
+  </div>
+</div>
 
-    <div class="test">
-      <img src="/category/Earring_enamel_gold.webp" alt="img"/>
-      <h3>Bracelet</h3>
-      <p class="pris">599 DKK.</p>
-      <p class="readmore">LÆS MERE</p>
+<div class="productBox">
+  <div class="productImg">
+    <img class="productInnerImg" src="public/category/Ring_jk_gold.webp" alt="${data.name}" />
+  </div>
+  <div class="info">
+    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
+    <p class="pris">600 DKK</p>
+  </div>
+  <div class="container">
+    <button><a href="index.html">GO TO TOP</a></button>
+  </div>
+  <div class="container">
+    <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
+  </div>
+</div>
+
+<!-- <a href="product.html?id=${data.id}">
+  <div class="productBox">
+    <div class="productImg">
+      <img class="productInnerImg" src="public/category/Ring_jk_gold.webp" alt="${data.name}" />
     </div>
-
-
-    <ul>
-      {data.map((product) => (
-        <li>
-          <img src={product.image_url} alt={"img"} />
-          <h3>{product.name}</h3>
-          <p class="pris">{product.price} DKK.</p>
-          <p class="readmore">LÆS MERE</p>
-        </li>
-      ))}
-    </ul>
-  </body>
-</html>
+    <div class="info">
+      <h2 class="productBoxName">ENAMEL EARRINGS</h2>
+      <p class="pris">600 DKK</p>
+    </div>
+    <div class="container">
+      <button><a href="index.html">GO TO TOP</a></button>
+    </div>
+    <div class="container">
+      <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
+    </div>
+  </div>
+</a> -->
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+  /******************* Productcard *******************/
+  .productBox {
+    position: relative;
+    border-radius: 0px;
+    background-color: #ffffff;
+  }
+  a {
+    text-decoration: none;
+    color: #343434;
+  }
+  .productImg {
+    overflow: hidden;
+    background-color: #e3ded6;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    height: 450px;
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
+  }
+  .productInnerImg:hover {
+    scale: 1.1;
+    filter: brightness(1.05);
+    transition: 0.5s;
+  }
+  .info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: flex-end;
+    justify-content: space-between;
+  }
+  .productBoxName {
+    font-size: 120%;
+  }
 
+  @media (max-width: 800px) {
+    .productInnerImg {
+      scale: 2.4;
+      transform: translate(0, 20%);
+      transition:
+        scale ease-in 0.2s,
+        filter ease-in 0.2s;
+    }
+    .productInnerImg:hover {
+      scale: 2.5;
+      filter: brightness(1.05);
+    }
+    .productImg {
+      overflow: hidden;
+      height: auto;
+      border-radius: 10px;
+    }
+    .productBox {
+      width: 100%;
+    }
+    .info {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: flex-end;
+      justify-content: space-between;
+    }
+  }
+  /**************** BUTTON ***************** */
+  button {
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    border: #ffffff;
+    font-weight: bold;
+  }
 
+  button a {
+    text-decoration: none;
+    color: #343434;
+  }
+  .button_line {
+    width: 14%;
+    height: 14%;
+  }
+
+  .container {
+    display: flex;
+  }
 </style>
+=======
+
+
+
