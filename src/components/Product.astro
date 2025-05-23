@@ -14,12 +14,21 @@ const { data, error } = await supabase
 
 <html>
   <body>
+
+    <div class="test">
+      <img src="/category/Earring_enamel_gold.webp" alt="img"/>
+      <h3>Bracelet</h3>
+      <p class="pris">599 DKK.</p>
+      <p class="readmore">LÆS MERE</p>
+    </div>
+
+
     <ul>
       {data.map((product) => (
         <li>
           <img src={product.image_url} alt={"img"} />
           <h3>{product.name}</h3>
-          <p>{product.price} DKK.</p>
+          <p class="pris">{product.price} DKK.</p>
           <p class="readmore">LÆS MERE</p>
         </li>
       ))}
@@ -27,3 +36,7 @@ const { data, error } = await supabase
   </body>
 </html>
 
+<style>
+
+
+</style>
