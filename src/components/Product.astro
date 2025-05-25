@@ -6,37 +6,31 @@ const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const { data, error } = await supabase
-  .from('Smykker')
-  .select('id, image_url, name, price, slug');
-
+const { data, error } = await supabase.from("Smykker").select("id, category, brand, image_url, name, price, slug");
 ---
 
 <html>
   <body>
-
     <div class="test">
-      <img src="/category/Earring_enamel_gold.webp" alt="img"/>
+      <img src="/category/Earring_enamel_gold.webp" alt="img" />
       <h3>Bracelet</h3>
       <p class="pris">599 DKK.</p>
       <p class="readmore">LÆS MERE</p>
     </div>
 
-
     <ul>
-      {data.map((product) => (
-        <li>
-          <img src={product.image_url} alt={"img"} />
-          <h3>{product.name}</h3>
-          <p class="pris">{product.price} DKK.</p>
-          <p class="readmore">LÆS MERE</p>
-        </li>
-      ))}
+      {
+        data.map((product) => (
+          <li>
+            <img src={product.image_url} alt={"img"} />
+            <h3>{product.name}</h3>
+            <p class="pris">{product.price} DKK.</p>
+            <p class="readmore">LÆS MERE</p>
+          </li>
+        ))
+      }
     </ul>
   </body>
 </html>
 
-<style>
-
-
-</style>
+<style></style>
