@@ -7,32 +7,32 @@
         <div class="shop_categories">
           <div class="shop_overskrift">
             <h2>ALLE SMYKKER <br /> NYHEDER</h2>
-            <p>KATEGORIER</p>
+            <p class="pategorip">KATEGORIER</p>
           </div>
           <div class="shop_categoryimg">
             <div>
               <p>RINGE</p>
-              <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=RINGE"><img src="public/category/Ring_jk_gold.webp" alt="g" /></a>
             </div>
             <div>
-              <p>øRERINGE</p>
-              <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
+              <p>ØRERINGE</p>
+              <a href="/productlist?category=ØRERINGE"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
             </div>
             <div>
               <p>ARMBÅND</p>
-              <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=ARMBÅND"><img class="armband_img" src="public/category/Bracelet_cb_silver.webp" alt="g" /></a>
             </div>
             <div>
               <p>HALSKÆDER</p>
-              <a href="#"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=HALSKÆDER"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
             </div>
             <div>
               <p>SØLV</p>
-              <a href="#"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=SØLV"><img class="silver_img" src="public/category/Earring_cb_silver.webp" alt="g" /></a>
             </div>
             <div>
               <p>GULD</p>
-              <a href="#"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=GULD"><img class="gold_img" src="public/category/Ring_cb_gold.webp" alt="g" /></a>
             </div>
           </div>
         </div>
@@ -44,12 +44,12 @@
       <a href="#">BRANDS</a>
       <div class="dropdown">
         <div class="brands_container">
-          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
-          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
-          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
-          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
-          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
-          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="/productlist?brand=JaneKønig"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="/productlist?brand=MariaBlack"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="/productlist?brand=Enamel"><img class="brands_img" src="public/brand_logo/logo_enamel.webp" alt="idk" /></a>
+          <a href="/productlist?brand=CamilleBrinch"><img class="brands_img" src="public/brand_logo/logo_camillebrinch.webp" alt="idk" /></a>
+          <a href="/productlist?brand=Sistie"><img class="brands_img" src="public/brand_logo/logo_sistie.webp" alt="idk" /></a>
+          <a href="/productlist?brand=StineA"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
         </div>
       </div>
     </div>
@@ -74,6 +74,10 @@
     text-decoration: none;
     color: #343434;
   }
+  .menu_item a:hover {
+    color: #e0f1fe;
+    transition: 0.2s;
+  }
   .dropdown {
     display: none;
     z-index: 10;
@@ -89,10 +93,32 @@
     position: relative;
   }
 
+  .shop_categories img:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.3);
+  }
+
   @media (min-width: 800px) {
+    .pategorip {
+      padding-left: 20px;
+    }
     .menu_item:hover .dropdown {
       display: flex;
       flex-direction: row;
+    }
+
+    .armband_img {
+      height: 60px;
+      width: auto;
+      padding-top: 20px;
+    }
+    .gold_img {
+      height: 60px;
+      width: auto;
+    }
+    .silver_img {
+      height: 60px;
+      width: auto;
     }
 
     .brands_img {
@@ -136,6 +162,7 @@
       height: 500px;
       align-items: center;
       object-fit: cover;
+      margin-right: 10px;
     }
 
     .shop_categoryimg img {
@@ -247,6 +274,18 @@
       width: auto;
       padding-right: 75px;
     }
+    .armband_img {
+      height: 60px;
+      width: auto;
+    }
+    .gold_img {
+      height: 60px;
+      width: auto;
+    }
+    .silver_img {
+      height: 60px;
+      width: auto;
+    }
     .brands_container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -262,7 +301,7 @@
     .brands_container img {
       max-height: 100px;
       width: auto;
-      margin-right: 110px;
+      margin-right: 111px;
     }
   }
 </style>
@@ -272,13 +311,16 @@
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
 
-  burger.addEventListener("click", function () {
+  function toggleBurgerMenu() {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
-  });
+  }
 
-  menu.addEventListener("click", function () {
+  function closeBurgerMenu() {
     burger.classList.remove("active");
     nav.classList.remove("active");
-  });
+  }
+
+  burger.addEventListener("click", toggleBurgerMenu);
+  menu.addEventListener("click", closeBurgerMenu);
 </script>
