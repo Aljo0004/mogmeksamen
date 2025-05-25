@@ -15,7 +15,7 @@
               <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
             </div>
             <div>
-              <p>øRERINGE</p>
+              <p>ØRERINGE</p>
               <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
             </div>
             <div>
@@ -272,13 +272,16 @@
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
 
-  burger.addEventListener("click", function () {
+  function toggleBurgerMenu() {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
-  });
+  }
 
-  menu.addEventListener("click", function () {
+  function closeBurgerMenu() {
     burger.classList.remove("active");
     nav.classList.remove("active");
-  });
+  }
+
+  burger.addEventListener("click", toggleBurgerMenu);
+  menu.addEventListener("click", closeBurgerMenu);
 </script>
