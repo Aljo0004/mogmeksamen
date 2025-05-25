@@ -1,64 +1,63 @@
 <nav>
-  <ul class="menu">
-    <li class="dropdown">
+  <div class="menu">
+    <div class="menu_item">
       <a href="#">SHOP</a>
-      <ul class="dropdown-content shop-dropdown">
-        <div class="shop_flex">
-          <div>
-            <div class="shop_overskrift">
-              <h2 class="overskriftoverskrift">ALLE SMYKKER <br /> NYHEDER</h2>
-              <p>KATEGORIER:</p>
+
+      <div class="dropdown">
+        <div class="shop_categories">
+          <div class="shop_overskrift">
+            <h2>ALLE SMYKKER <br /> NYHEDER</h2>
+            <p>KATEGORIER</p>
+          </div>
+          <div class="shop_categoryimg">
+            <div>
+              <p>RINGE</p>
+              <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
             </div>
-            <div class="shop_options">
-              <div>
-                <p class="categories_p">RINGE</p>
-                <li><img src="/category/Earring_enamel_gold.webp" alt="g" /></li>
-              </div>
-              <div>
-                <p class="categories_p">ØRERINGE</p>
-                <li><img src="/category/Earring_enamel_gold.webp" alt="g" /></li>
-              </div>
-              <div>
-                <p class="categories_p">ARMBÅND</p>
-                <li><img src="/category/Earring_enamel_gold.webp" alt="g" /></li>
-              </div>
-              <div>
-                <p class="categories_p">HALSKÆDER</p>
-                <li><img src="/category/Earring_enamel_gold.webp" alt="g" /></li>
-              </div>
-              <div>
-                <p class="categories_p">SØLV</p>
-                <li><img src="/category/Earring_enamel_gold.webp" alt="g" /></li>
-              </div>
-              <div>
-                <p class="categories_p">GULD</p>
-                <li><img src="/category/Earring_enamel_gold.webp" alt="g" /></li>
-              </div>
+            <div>
+              <p>øRERINGE</p>
+              <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
+            </div>
+            <div>
+              <p>ARMBÅND</p>
+              <a href="#"><img src="public/category/Earring_enamel_gold.webp" alt="g" /></a>
+            </div>
+            <div>
+              <p>HALSKÆDER</p>
+              <a href="#"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
+            </div>
+            <div>
+              <p>SØLV</p>
+              <a href="#"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
+            </div>
+            <div>
+              <p>GULD</p>
+              <a href="#"><img src="public/category/Halskaede_cb_gold.webp" alt="g" /></a>
             </div>
           </div>
-          <img class="shop_img" src="/category/Ring_sistie_silver-on.webp" alt="blabla" />
         </div>
-      </ul>
-    </li>
+        <img class="shop_img" src="public/category/Ring_sistie_silver-on.webp" alt="ff" />
+      </div>
+    </div>
 
-    <li class="dropdown">
+    <div class="menu_item">
       <a href="#">BRANDS</a>
-      <ul class="dropdown-content brands-dropdown">
-        <div class="brands_dropdown">
-          <li><img src="/brand_logo/logo_camillebrinch.webp" alt="" /></li>
-          <li><img src="/brand_logo/logo_enamel.webp" alt="" /></li>
-          <li><img src="/brand_logo/logo_janekoenig.webp" alt="" /></li>
-          <li><img src="/brand_logo/logo_sistie.webp" alt="" /></li>
-          <li><img src="/brand_logo/logo_sistie.webp" alt="" /></li>
-          <li><img src="/brand_logo/logo_sistie.webp" alt="" /></li>
+      <div class="dropdown">
+        <div class="brands_container">
+          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
+          <a href="#"><img class="brands_img" src="public/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
         </div>
-      </ul>
-    </li>
-    <li><a href="#">ABOUT US</a></li>
-  </ul>
-  <div class="burgerwrap">
-    <img class="headerlogo" src="/svg/mullersandmore.svg" alt="logo" />
+      </div>
+    </div>
 
+    <a href="#">ABOUT US</a>
+  </div>
+
+  <div class="burgerwrap">
     <div class="burger">
       <div class="line"></div>
       <div class="line"></div>
@@ -68,267 +67,202 @@
 </nav>
 
 <style>
-  .burgerwrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
-  .categories_p {
-    text-decoration: underline;
-    text-align: justify;
-  }
-  .dropdown-content .shop_options img {
-    width: 60%;
-    height: auto;
-    align-items: end;
-  }
-  .headerlogo {
-    max-width: 50%;
-    height: auto;
-  }
-  .dropdown-content .shop_img {
-    width: 100%;
-    height: 500px;
-    align-items: center;
-    object-fit: cover;
-  }
-  .shop_overskrift p {
-    font-size: 26px;
-  }
-  .overskriftoverskrift {
-    text-align: left;
-  }
-  .shop_overskrift {
-    padding-left: 90px;
-  }
-  .shop_flex {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .shop_options {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding-left: 90px;
-  }
-  .brands_dropdown {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  .dropdown .brands_dropdown img {
-    border-radius: 50%;
-    width: 150px;
-  }
-
   nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 40px;
-    position: relative;
+    /* position: relative; */
   }
-
-  .menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu > li {
-    position: relative;
-    margin-right: 20px;
-  }
-
-  .menu > li:last-child {
-    margin-right: 0;
-  }
-
-  .menu a {
-    display: block;
-    padding: 10px;
-    color: #333333;
+  a {
     text-decoration: none;
-    transition: color 0.3s;
-    text-align: end;
-    height: 100%;
+    color: #343434;
   }
-
-  .menu a:hover {
-    color: #e0f1fe;
-  }
-
-  .dropdown-content {
+  .dropdown {
     display: none;
-    position: fixed;
-    top: 64px;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    background-color: #e0f1fe;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100vw;
+    padding: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #e0f1fe;
+  }
+  .brands_img {
+    border-radius: 70px;
   }
 
-  .dropdown-content li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .menu_item {
+    position: relative;
   }
 
-  .dropdown-content li a {
-    padding: 10px 20px;
-    display: block;
-    white-space: nowrap;
-    color: #333;
-  }
-
-  .dropdown-content img {
-    width: 60px;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.3s;
-    cursor: pointer;
-  }
-
-  .dropdown-content li a:hover {
-    background-color: #f0f0f0;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  @media (max-width: 800px) {
-    .burgerwrap {
+  @media (min-width: 800px) {
+    .menu_item:hover .dropdown {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      padding-top: 30px;
-      padding-bottom: 20px;
     }
 
-    .burger {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      display: none;
+    .brands_img {
+      height: 120px;
+      width: auto;
     }
-    .headerlogo {
-      width: 50%;
-      height: auto;
-      padding-right: 40px;
-    }
-
-    .dropdown-content .shop_options img {
+    .brands_container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
       width: 100%;
-      height: auto;
+      align-items: center;
+      justify-items: center;
+      padding: 20px;
     }
-    /* .menu a {
+
+    .dropdown {
+      flex-direction: row;
+      position: fixed;
+      width: 100vw;
+      top: 60px;
+      left: 0;
+    }
+
+    .shop_categories {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+
+    .shop_categoryimg {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      max-height: 300px;
+      padding-left: 50px;
+    }
+
+    .shop_img {
+      width: 50%;
+      height: 500px;
+      align-items: center;
+      object-fit: cover;
+    }
+
+    .shop_categoryimg img {
+      max-height: 100px;
+      width: auto;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      width: 100%;
+      top: 94px;
+      left: 0;
+    }
+    .menu_item {
+      width: 100%;
+    }
+    .menu_item > a {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .menu a {
       display: block;
       padding: 10px;
       color: #333333;
       text-decoration: none;
       transition: color 0.3s;
       text-align: end;
-      height: 100%;
-    } */
-    .brands_dropdown {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      padding: 30px;
-      justify-content: center;
-      margin-left: 40px;
     }
-    .brands_dropdown img {
-      padding: 30px;
-      align-items: center;
-      width: 50%;
-      height: auto;
-      border-radius: 50%;
-    }
-    .shop_options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      padding-left: 225px;
-    }
-    .shop_options img {
-      width: 50%;
-    }
-    .shop_flex .shop_options .categories_p {
-      font-size: 15px;
-    }
-    .shop_flex .shop_overskrift {
-      padding-left: 225px;
+    .menu_item:hover .dropdown {
+      display: flex;
     }
 
-    .shop_img {
-      display: none;
+    .burgerwrap {
+      padding-top: 30px;
+      padding-bottom: 20px;
     }
-    .burger .line {
-      width: 100%;
-      height: 2px;
-      background-color: #333333;
-      margin-bottom: 5px;
-      transition: 0.2s linear;
-    }
-    .dropdown .dropdown-content {
-      margin-top: 140px;
-    }
-    .dropdown {
-      margin: 0;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    .menu {
-      display: none;
-    }
-    .burger {
-      display: block;
-    }
+
     .burger.active .line:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
       transition: 0.2s linear;
     }
-
     .burger.active .line:nth-child(2) {
       opacity: 0;
       transition: 0.15s linear;
     }
-
     .burger.active .line:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
       transition: 0.2s linear;
     }
-
     nav.active .menu {
       display: block;
       background-color: #ffffff;
       position: absolute;
-      top: 94px;
+      top: 70px;
       left: 0;
       width: 100%;
       box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
       z-index: 1;
     }
 
-    nav.active .menu p {
-      margin: 10px 20px;
+    .burger {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      display: block;
     }
 
-    nav.active .menu p {
-      font-size: 24px;
+    .burger .line {
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      margin-bottom: 5px;
+      transition: 0.2s linear;
+    }
+
+    .dropdown {
+      display: none;
+      flex-direction: column;
+      padding-left: 10px 0;
+      position: absolute;
+      width: 100vw;
+      z-index: 100;
+      top: 100%;
+      left: 0;
+    }
+    .shop_categoryimg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      text-align: center;
+      padding-right: 80px;
+    }
+    .shop_categoryimg img {
+      max-height: 100px;
+      width: auto;
+      padding-right: 75px;
+    }
+    .brands_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+    }
+    .shop_img {
+      display: none;
+    }
+    .shop_overskrift p {
+      padding-left: 18px;
+      padding-bottom: 50px;
+    }
+    .brands_container img {
+      max-height: 100px;
+      width: auto;
+      margin-right: 110px;
     }
   }
 </style>
@@ -338,14 +272,13 @@
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
 
-  burger.addEventListener("click", burgerClick);
-  function burgerClick() {
+  burger.addEventListener("click", function () {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
-  }
-  menu.addEventListener("click", menuClick);
-  function menuClick() {
+  });
+
+  menu.addEventListener("click", function () {
     burger.classList.remove("active");
     nav.classList.remove("active");
-  }
+  });
 </script>

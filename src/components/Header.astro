@@ -4,7 +4,7 @@ import Navigation from "./Navigation.astro";
 
 <header>
   <div class="headerlogo">
-    <img src="/svg/mullersandmore.svg" alt="logo" />
+    <img src="public/svg/mullersandmore.svg" alt="logo" />
   </div>
   <div class="navigationplace">
     <Navigation />
@@ -12,7 +12,7 @@ import Navigation from "./Navigation.astro";
 
   <style>
     header {
-      position:;
+      position: sticky;
       background-color: #ffffff;
     }
 
@@ -20,6 +20,7 @@ import Navigation from "./Navigation.astro";
       header {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        background-color: #ffffff;
       }
 
       .headerlogo {
@@ -29,13 +30,27 @@ import Navigation from "./Navigation.astro";
       }
 
       .navigationplace {
-        padding-top: 10px;
+        padding-top: 40px;
         grid-column: 3/4;
+        justify-content: baseline;
+        padding-left: 200px;
       }
     }
     @media (max-width: 800px) {
-      .headerlogo {
-        display: none;
+      header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+      }
+      .headerlogo img {
+        height: 50px;
+        width: auto;
+        padding-left: 30px;
+      }
+      .navigationplace {
+        padding-right: 30px;
       }
     }
   </style>
