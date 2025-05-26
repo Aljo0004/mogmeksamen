@@ -1,75 +1,86 @@
----
-import { createClient } from "@supabase/supabase-js";
+<div id="product-section">
+  <p>Indlæser produkt...</p>
+</div>
 
-const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
-const supabase = createClient(supabaseUrl, supabaseKey);
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-const { data, error } = await supabase.from("Smykker").select("id, category, brand, image_url, name, price, slug").eq("id", id).single(); // <- hent kun ét produkt
+  const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
-const product = data;
-let fetchUrl = `productlist.html`;
-if (window.location.search.includes(`id`)) {
-  fetchUrl += `/${id}`;
-}
----
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get("id");
 
-<section class="topsection">
-  <button><a href="productlist.html">TILBAGE</a></button>
-</section>
-<section class="product_section">
-  <div class="container product_container">
-    <div class="box1">
-      <img src={product.image_url} alt='Produktid"' />
-    </div>
+  const { data, error } = await supabase
+    .from("Smykker")
+    .select("id, name, price, category, brand, image_url, material")
+    .eq("id", productId)
+    .single();
 
-    <div class="box2">
-      <ul>
-        <li>
-          <h1>{product.name}</h1>
-        </li>
-        <li>
-          <h2>Pris:</h2>
-          <p>{product.price}</p>
-        </li>
-      </ul>
+  if (error) {
+    document.getElementById("product-section").innerHTML = `<p>Fejl: ${error.message}</p>`;
+  } else {
+    const product = data;
+    document.getElementById("product-section").innerHTML = `
+  <section class="topsection">
+    <button><a href="productlist.html">TILBAGE</a></button>
+  </section>
 
-      <ul class="box2_2">
-        <li>
+  <section class="product_section">
+    <div class="container product_container">
+      <div class="box1">
+        <img src="${product.image_url}" alt="${product.name}" />
+      </div>
+
+      <div class="box2">
+        <ul>
+          <li>
+            <h1>${product.name}</h1>
+          </li>
+          <li>
+            <h2>Pris:</h2>
+            <p>${product.price}</p>
+          </li>
+        </ul>
+
+        <ul class="box2_2">
           <li>
             <h4>Farve:</h4>
-            <p>{product.material}</p>
+            <p>${product.material}</p>
           </li>
           <li class="tags-container">
             <h4>Tags:</h4>
-            <>
-              <p>{product.brand}</p>
-              <p>,</p>
-              <p>{product.category}</p>
-            </>
+            <p>${product.brand}</p>
+            <p>,</p>
+            <p>${product.category}</p>
           </li>
           <li>
             <h4>Model:</h4>
-            <p>
-              {product.brand}, {product.name}
-            </p>
+            <p>${product.brand}, ${product.name}</p>
           </li>
-        </li>
-      </ul>
+        </ul>
 
-      <div class="container">
-        <button>
-          <a href="product.html">LÆG I KURV</a>
-        </button>
-      </div>
-      <div class="container">
-        <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
+        <div class="container">
+          <button>
+            <a href="product.html?id=${product.id}">LÆG I KURV</a>
+          </button>
+        </div>
+
+        <div class="container">
+          <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+`;
 
-<style>
+}
+</script>
+
+
+
+<style is:global>
   /***************** sections *****************/
   .topsection {
     background-color: #e3ded6;
