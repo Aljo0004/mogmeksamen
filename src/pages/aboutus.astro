@@ -7,6 +7,7 @@ import "../styles/style.css";
 <!doctype html>
 <html lang="da">
   <head>
+    <meta name="robots" content="noindex" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,9 +16,11 @@ import "../styles/style.css";
   </head>
   <Header />
   <img src="/category/Bracelet_cb_silver-on.webp" alt="" />
-  <div class="line"></div>
-  <p class="aboutus_text">Hos Müllers & MORE finder du smykker fra en masse fede, danske mærker. <br /> Vi har noget for alle - fra de klassiske styles til de trendy statement smykker. Træd ind i vores smykkeunivers, og lad dig forføre af smykker, der skaber opmærksomhed og tilføjer personlighed til enhver stil. <br /> Vi forhandler Enamel, Camille Brinch, Sif Jakobs, Stine A, Jane Kønig, Jeberg, Maria Black, Pernille Corydon, Studio Z, Aqua Dulce, Son of Noa, Rosefield, Sistie og Sistie 2nd.</p>
-  <div class="line"></div>
+
+  <div class="background">
+    <p class="aboutus_text">Hos Müllers & MORE finder du smykker fra en masse fede, danske mærker. <br /> Vi har noget for alle - fra de klassiske styles til de trendy statement smykker. Træd ind i vores smykkeunivers, og lad dig forføre af smykker, der skaber opmærksomhed og tilføjer personlighed til enhver stil og til enhver begivenhed. <br /> Vi forhandler Enamel, Camille Brinch, Sif Jakobs, Stine A, Jane Kønig, Jeberg, Maria Black, Pernille Corydon, Studio Z, Aqua Dulce, Son of Noa, Rosefield, Sistie og Sistie 2nd.</p>
+  </div>
+
   <Footer />
 
   <style>
@@ -25,7 +28,7 @@ import "../styles/style.css";
       .aboutus_text {
         text-align: center;
         padding: 40px;
-        line-height: 30px;
+        line-height: 40px;
       }
       img {
         max-width: 400px;
@@ -34,19 +37,20 @@ import "../styles/style.css";
         margin: auto;
         padding-top: 50px;
       }
-      .line {
-        width: 100%;
-        height: 2px;
-        background-color: #333;
-        margin-bottom: 5px;
+      .background {
+        background-color: #e3ded6;
+        margin-left: 100px;
+        margin-right: 100px;
+        border-radius: 50px;
+        margin-top: 60px;
       }
     }
     @media (min-width: 800px) {
       .aboutus_text {
         text-align: center;
-        padding-left: 400px;
-        padding-right: 400px;
-        line-height: 35px;
+        padding-left: 100px;
+        padding-right: 100px;
+        line-height: 40px;
       }
       img {
         max-width: 500px;
@@ -56,12 +60,13 @@ import "../styles/style.css";
         padding-top: 50px;
         padding-bottom: 50px;
       }
-      .line {
-        width: 60%;
-        height: 2px;
-        background-color: #333;
-        margin: auto;
-        margin-bottom: 30px;
+      .background {
+        background-color: #e3ded6;
+        margin-left: 250px;
+        margin-right: 250px;
+        border-radius: 50px;
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
     }
   </style>
