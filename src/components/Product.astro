@@ -10,7 +10,7 @@ const { data, error } = await supabase.from("Smykker").select("id, category, bra
 
 {
   data.map((product) => (
-    <a href="product.html?id=${data.id}">
+    <a href={`/product.html?id=${product.id}`}>
       <div class="productBox">
         <div class="productImg">
           <img class="productInnerImg" src={product.image_url} alt="{product.name}" />
