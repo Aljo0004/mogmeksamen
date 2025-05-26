@@ -1,21 +1,36 @@
+---
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const { data, error } = await supabase.from("Smykker").select("id, category, brand, image_url, name, price, slug").eq("id", id).single(); // <- hent kun ét produkt
+
+const product = data;
+let fetchUrl = `productlist.html`;
+if (window.location.search.includes(`id`)) {
+  fetchUrl += `/${id}`;
+}
+---
+
 <section class="topsection">
   <button><a href="productlist.html">TILBAGE</a></button>
 </section>
-
 <section class="product_section">
   <div class="container product_container">
     <div class="box1">
-      <img src="public/category/Earring_enamel_gold.webp" alt='Produktid"' />
+      <img src={product.image_url} alt='Produktid"' />
     </div>
 
     <div class="box2">
       <ul>
         <li>
-          <h1>Product Navn</h1>
+          <h1>{product.name}</h1>
         </li>
         <li>
           <h2>Pris:</h2>
-          <p>555 DKK</p>
+          <p>{product.price}</p>
         </li>
       </ul>
 
@@ -23,139 +38,147 @@
         <li>
           <li>
             <h4>Farve:</h4>
-            <p>Soelv</p>
+            <p>{product.material}</p>
           </li>
           <li class="tags-container">
             <h4>Tags:</h4>
-            <p>Brand</p><p>,</p><p>Kategori</p>
+            <>
+              <p>{product.brand}</p>
+              <p>,</p>
+              <p>{product.category}</p>
+            </>
           </li>
           <li>
             <h4>Model:</h4>
-            <p>Brand, Modelnavn</p>
+            <p>
+              {product.brand}, {product.name}
+            </p>
           </li>
         </li>
       </ul>
 
       <div class="container">
-        <button><a href="index.html">LAEG I KURV</a></button>
+        <button>
+          <a href="product.html">LÆG I KURV</a>
+        </button>
       </div>
       <div class="container">
         <img class="button_line" src="public/footer/line.webp" alt="sort linje" />
       </div>
     </div>
   </div>
-
-  <style>
-    /***************** sections *****************/
-    .topsection {
-      background-color: #e3ded6;
-      padding: 2rem;
-    }
-    .product_section {
-      background-color: #ffffff;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-
-    /***************** læg i kurv *****************/
-    .button_line {
-      width: 20%;
-      height: 20%;
-    }
-    .container {
-      justify-content: center;
-      text-align: center;
-    }
-
-    .container button {
-      background-color: #ffffff;
-      border: 2px solid #ffffff;
-      font-weight: bolder;
-      font-size: medium;
-    }
-    /***************** BILLEDE BOX *****************/
-    .box1 {
-      color: black;
-      padding: 2rem;
-      justify-self: center;
-    }
-
-    .box1 img {
-      background-color: #e3ded6;
-      padding: 2rem;
-      height: 100%;
-      width: 100%;
-    }
-
-    /****************** TEXT BOX *******************/
-    .box2 {
-      position: relative;
-      padding: 2rem;
-    }
-
-    .box2 li {
-      list-style: none;
-      display: flex;
-      align-items: center; /* Sørger for vertikal justering */
-      padding: 10px;
-    }
-
-    .box2_2 {
-      padding-top: 40px;
-    }
-
-    p {
-      padding-left: 10px;
-    }
-    /****************** Grid *************************/
-
-    @media (min-width: 800px) {
-      .product_container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-left: 4rem;
-        margin-right: 4rem;
-      }
-    }
-    @media (max-width: 800px) {
-      .product_container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin-left: 2rem;
-        margin-right: 2rem;
-      }
-    }
-    /****************** Styling *************************/
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    img {
-      height: auto;
-      border-radius: 10px;
-    }
-
-    button {
-      background-color: #e3ded6;
-      height: 40px;
-      width: 150px;
-      border: 2px solid #343434;
-      margin-top: 20px;
-    }
-    button a {
-      text-decoration: none;
-      color: var(--dark);
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bolder;
-    }
-    ul,
-    li {
-      list-style: none;
-      text-decoration: none;
-    }
-  </style>
 </section>
+
+<style>
+  /***************** sections *****************/
+  .topsection {
+    background-color: #e3ded6;
+    padding: 2rem;
+  }
+  .product_section {
+    background-color: #ffffff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /***************** læg i kurv *****************/
+  .button_line {
+    width: 20%;
+    height: 20%;
+  }
+  .container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .container button {
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    font-weight: bolder;
+    font-size: medium;
+  }
+  /***************** BILLEDE BOX *****************/
+  .box1 {
+    color: black;
+    padding: 2rem;
+    justify-self: center;
+  }
+
+  .box1 img {
+    background-color: #e3ded6;
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  /****************** TEXT BOX *******************/
+  .box2 {
+    position: relative;
+    padding: 2rem;
+  }
+
+  .box2 li {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Sørger for vertikal justering */
+    padding: 10px;
+  }
+
+  .box2_2 {
+    padding-top: 40px;
+  }
+
+  p {
+    padding-left: 10px;
+  }
+  /****************** Grid *************************/
+
+  @media (min-width: 800px) {
+    .product_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
+  }
+  @media (max-width: 800px) {
+    .product_container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+  }
+  /****************** Styling *************************/
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    height: auto;
+    border-radius: 10px;
+  }
+
+  button {
+    background-color: #e3ded6;
+    height: 40px;
+    width: 150px;
+    border: 2px solid #343434;
+    margin-top: 20px;
+  }
+  button a {
+    text-decoration: none;
+    color: var(--dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+  }
+  ul,
+  li {
+    list-style: none;
+    text-decoration: none;
+  }
+</style>
