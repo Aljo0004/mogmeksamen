@@ -3,11 +3,23 @@ import Product from "./Product.astro";
 ---
 
 <div class="carousel">
-  <Product />
+  <div class="grid_4">
+    <Product />
+  </div>
 </div>
 
 <style>
   .carousel {
     overflow-x: auto;
+  }
+
+  .grid_4 {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    overflow-x: hidden;
+    gap: 20px;
+    padding: 2rem;
   }
 </style>

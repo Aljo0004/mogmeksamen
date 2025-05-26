@@ -1,30 +1,35 @@
 ---
-// import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
-// const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
-// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
-// const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-// const { data, error } = await supabase.from("Smykker").select("id, category, brand image_url, name, price, slug");
+const { data, error } = await supabase.from("Smykker").select("id, category, brand, image_url, name, price, slug");
 ---
 
-<!-- <a href="product.html?id=${data.id}"> -->
-<div class="productBox">
-  <div class="productImg">
-    <img class="productInnerImg" src="category/Ring_cb_gold.webp" alt="${data.name}" />
-  </div>
-  <div class="info">
-    <h2 class="productBoxName">ENAMEL EARRINGS</h2>
-    <p class="pris">600 DKK</p>
-  </div>
-  <div class="container">
-    <button><a href="index.html">LAES MERE</a></button>
-  </div>
-  <div class="container">
-    <img class="button_line" src="footer/line.webp" alt="sort linje" />
-  </div>
-</div>
-<!-- </a> -->
+{
+  data.map((product) => (
+    <a href="product.html?id=${data.id}">
+      <div class="productBox">
+        <div class="productImg">
+          <img class="productInnerImg" src={product.image_url} alt="{product.name}" />
+        </div>
+        <div class="info">
+          <h2 class="productBoxName">{product.name}</h2>
+          <p class="pris">{product.price} DKK</p>
+        </div>
+        <div class="container">
+          <p class="button">LÆS MERE</p>
+        </div>
+        <div class="container">
+          <img class="button_line" src="footer/line.webp" alt="sort linje" />
+        </div>
+      </div>
+    </a>
+  ))
+}
+
 <style>
   /******************* STYLE *******************/
   * {
@@ -126,17 +131,16 @@
     }
   }
   /**************** BUTTON ***************** */
-  button {
+  .button {
     background-color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     border: #ffffff;
     font-weight: bold;
-  }
-
-  button a {
     text-decoration: none;
+    font-size: 1dvw;
     color: #343434;
   }
+
   @media (min-width: 800px) {
     .button_line {
       width: 18%;
