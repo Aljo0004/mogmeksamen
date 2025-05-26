@@ -9,49 +9,50 @@ import Navigation from "./Navigation.astro";
   <div class="navigationplace">
     <Navigation />
   </div>
+</header>
 
-  <style>
+<style>
+  header {
+    z-index: 1000;
+    position: sticky;
+    background-color: #ffffff;
+  }
+
+  @media (min-width: 800px) {
     header {
-      position: sticky;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       background-color: #ffffff;
     }
 
-    @media (min-width: 800px) {
-      header {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        background-color: #ffffff;
-      }
-
-      .headerlogo {
-        grid-column: 2/3;
-        width: 50%;
-        padding-left: 120px;
-      }
-
-      .navigationplace {
-        padding-top: 40px;
-        grid-column: 3/4;
-        justify-content: baseline;
-        padding-left: 200px;
-      }
+    .headerlogo {
+      grid-column: 2/3;
+      width: 50%;
+      padding-left: 120px;
     }
-    @media (max-width: 800px) {
-      header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #ffffff;
-      }
-      .headerlogo img {
-        height: 50px;
-        width: auto;
-        padding-left: 30px;
-      }
-      .navigationplace {
-        padding-right: 30px;
-      }
+
+    .navigationplace {
+      padding-top: 40px;
+      grid-column: 3/4;
+      justify-content: baseline;
+      padding-left: 200px;
     }
-  </style>
-</header>
+  }
+  @media (max-width: 800px) {
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+    }
+    .headerlogo img {
+      height: 50px;
+      width: auto;
+      padding-left: 30px;
+    }
+    .navigationplace {
+      padding-right: 30px;
+    }
+  }
+</style>
