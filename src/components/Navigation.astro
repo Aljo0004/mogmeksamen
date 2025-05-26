@@ -1,3 +1,28 @@
+---
+// import { createClient } from "@supabase/supabase-js";
+
+// const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+// const supabase = createClient(supabaseUrl, supabaseKey);
+
+// const url = Astro.url;
+// const category = url.searchParams.get("category");
+// const brand = url.searchParams.get("brand");
+// const material = url.searchParams.get("material");
+
+// let query = supabase.from("Smykker").select("brand, category, material");
+
+// if (category) {
+//   query = query.eq("category", category);
+// }
+// if (brand) {
+//   query = query.eq("brand", brand);
+// }
+// if (material) {
+//   query = query.eq("material", material);
+// }
+---
+
 <nav>
   <div class="menu">
     <div class="menu_item">
@@ -15,27 +40,27 @@
           <div class="shop_categoryimg">
             <div>
               <p>RINGE</p>
-              <a href="/productlist?category=RINGE"><img src="/category/Ring_jk_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=Ringe"><img src="/category/Ring_jk_gold.webp" alt="g" /></a>
             </div>
             <div>
               <p>ØRERINGE</p>
-              <a href="/productlist?category=ØRERINGE"><img src="/category/Earring_enamel_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=Øreringe"><img src="/category/Earring_enamel_gold.webp" alt="g" /></a>
             </div>
             <div>
               <p>ARMBÅND</p>
-              <a href="/productlist?category=ARMBÅND"><img class="armband_img" src="/category/Bracelet_cb_silver.webp" alt="g" /></a>
+              <a href="/productlist?category=Armbånd"><img class="armband_img" src="/category/Bracelet_cb_silver.webp" alt="g" /></a>
             </div>
             <div>
               <p>HALSKÆDER</p>
-              <a href="/productlist?category=HALSKÆDER"><img src="/category/Halskaede_cb_gold.webp" alt="g" /></a>
+              <a href="/productlist?category=Halskæder"><img src="/category/Halskaede_cb_gold.webp" alt="g" /></a>
             </div>
             <div>
               <p>SØLV</p>
-              <a href="/productlist?category=SØLV"><img class="silver_img" src="/category/Earring_cb_silver.webp" alt="g" /></a>
+              <a href="/productlist?material=Sølv"><img class="silver_img" src="/category/Earring_cb_silver.webp" alt="g" /></a>
             </div>
             <div>
               <p>GULD</p>
-              <a href="/productlist?category=GULD"><img class="gold_img" src="/category/Ring_cb_gold.webp" alt="g" /></a>
+              <a href="/productlist?material=Forgyldt"><img class="gold_img" src="/category/Ring_cb_gold.webp" alt="g" /></a>
             </div>
           </div>
         </div>
