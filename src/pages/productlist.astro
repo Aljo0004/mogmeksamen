@@ -1,24 +1,11 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import Navigation from "../components/Navigation.astro";
 import Productsection from "../components/Productsection.astro";
 import Signup from "../components/Signup.astro";
-import Welcome from "../components/Welcome.astro";
 import "../styles/style.css";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="da">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-  </head>
-  <Header />
+<Layout>
   <Productsection />
   <Signup />
-  <Footer />
-</html>
+</Layout>
