@@ -1,0 +1,70 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/style.css";
+---
+
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>About Us</title>
+  </head>
+  <Header />
+  <img src="/category/Bracelet_cb_silver-on.webp" alt="" />
+  <div class="line"></div>
+  <p class="aboutus_text">Hos Müllers & MORE finder du smykker fra en masse fede, danske mærker. <br /> Vi har noget for alle - fra de klassiske styles til de trendy statement smykker. Træd ind i vores smykkeunivers, og lad dig forføre af smykker, der skaber opmærksomhed og tilføjer personlighed til enhver stil. <br /> Vi forhandler Enamel, Camille Brinch, Sif Jakobs, Stine A, Jane Kønig, Jeberg, Maria Black, Pernille Corydon, Studio Z, Aqua Dulce, Son of Noa, Rosefield, Sistie og Sistie 2nd.</p>
+  <div class="line"></div>
+  <Footer />
+
+  <style>
+    @media (max-width: 800px) {
+      .aboutus_text {
+        text-align: center;
+        padding: 40px;
+        line-height: 30px;
+      }
+      img {
+        max-width: 400px;
+        height: auto;
+        display: block;
+        margin: auto;
+        padding-top: 50px;
+      }
+      .line {
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        margin-bottom: 5px;
+      }
+    }
+    @media (min-width: 800px) {
+      .aboutus_text {
+        text-align: center;
+        padding-left: 400px;
+        padding-right: 400px;
+        line-height: 35px;
+      }
+      img {
+        max-width: 500px;
+        height: auto;
+        display: block;
+        margin: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+      .line {
+        width: 60%;
+        height: 2px;
+        background-color: #333;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+
+
+</html>
