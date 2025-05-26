@@ -3,7 +3,7 @@
 </div>
 
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
   const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
   const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
@@ -12,11 +12,7 @@
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id");
 
-  const { data, error } = await supabase
-    .from("Smykker")
-    .select("id, name, price, category, brand, image_url, material")
-    .eq("id", productId)
-    .single();
+  const { data, error } = await supabase.from("Smykker").select("id, name, price, category, brand, image_url, material").eq("id", productId).single();
 
   if (error) {
     document.getElementById("product-section").innerHTML = `<p>Fejl: ${error.message}</p>`;
@@ -40,7 +36,7 @@
           </li>
           <li>
             <h2>Pris:</h2>
-            <p>${product.price}</p>
+            <p>${product.price} DKK</p>
           </li>
         </ul>
 
@@ -74,11 +70,8 @@
     </div>
   </section>
 `;
-
-}
+  }
 </script>
-
-
 
 <style is:global>
   /***************** sections *****************/
@@ -123,10 +116,6 @@
   }
 
   /****************** TEXT BOX *******************/
-  .box2 {
-    position: relative;
-    padding: 2rem;
-  }
 
   .box2 li {
     list-style: none;
@@ -152,14 +141,24 @@
       margin-left: 4rem;
       margin-right: 4rem;
     }
+
+    .box2 {
+      position: relative;
+      padding: 6rem;
+    }
   }
   @media (max-width: 800px) {
     .product_container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
-      margin-left: 2rem;
-      margin-right: 2rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .box2 {
+      position: relative;
+      padding: 1.5rem;
     }
   }
   /****************** Styling *************************/
