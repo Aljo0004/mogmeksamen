@@ -15,42 +15,50 @@ import "../styles/style.css";
     <title>About Us</title>
   </head>
   <Header />
-  <img src="/category/Bracelet_cb_silver-on.webp" alt="" />
-
-  <div class="background">
-    <p class="aboutus_text">Hos Müllers & MORE finder du smykker fra en masse fede, danske mærker. <br /> Vi har noget for alle - fra de klassiske styles til de trendy statement smykker. Træd ind i vores smykkeunivers, og lad dig forføre af smykker, der skaber opmærksomhed og tilføjer personlighed til enhver stil og til enhver begivenhed. <br /> Vi forhandler Enamel, Camille Brinch, Sif Jakobs, Stine A, Jane Kønig, Jeberg, Maria Black, Pernille Corydon, Studio Z, Aqua Dulce, Son of Noa, Rosefield, Sistie og Sistie 2nd.</p>
+  <div class="aboutusflex">
+    <img src="/category/Bracelet_cb_silver-on.webp" alt="" />
+    <div>
+      <h2 class="aboutus_h2">Om os</h2>
+      <p class="aboutus_text">Hos Müllers & MORE finder du smykker fra en masse fede, danske mærker. <br /> Vi har noget for alle - fra de klassiske styles til de trendy statement smykker. Træd ind i vores smykkeunivers, og lad dig forføre af smykker, der skaber opmærksomhed og tilføjer personlighed til enhver stil og til enhver begivenhed. <br /> Vi forhandler Enamel, Camille Brinch, Sif Jakobs, Stine A, Jane Kønig, Jeberg, Maria Black, Pernille Corydon, Studio Z, Aqua Dulce, Son of Noa, Rosefield, Sistie og Sistie 2nd.</p>
+    </div>
   </div>
 
   <Footer />
 
   <style>
     @media (max-width: 800px) {
-      .aboutus_text {
-        text-align: center;
-        padding: 40px;
-        line-height: 40px;
+      .aboutus_h2 {
+        padding-left: 40px;
+        padding-top: 40px;
       }
+      .aboutus_text {
+        padding-left: 40px;
+        line-height: 35px;
+        padding-right: 40px;
+      }
+      .aboutusflex {
+        display: flex;
+        flex-direction: column;
+        background-color: #e3ded6;
+      }
+
       img {
-        max-width: 400px;
+        max-width: 500px;
         height: auto;
         display: block;
         margin: auto;
         padding-top: 50px;
       }
-      .background {
-        background-color: #e3ded6;
-        margin-left: 100px;
-        margin-right: 100px;
-        border-radius: 50px;
-        margin-top: 60px;
-      }
     }
     @media (min-width: 800px) {
       .aboutus_text {
-        text-align: center;
         padding-left: 100px;
         padding-right: 100px;
-        line-height: 40px;
+        line-height: 35px;
+      }
+      .aboutus_h2 {
+        padding-top: 120px;
+        padding-left: 100px;
       }
       img {
         max-width: 500px;
@@ -59,14 +67,13 @@ import "../styles/style.css";
         margin: auto;
         padding-top: 50px;
         padding-bottom: 50px;
+        padding-left: 150px;
       }
-      .background {
+      .aboutusflex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
         background-color: #e3ded6;
-        margin-left: 250px;
-        margin-right: 250px;
-        border-radius: 50px;
-        padding-top: 20px;
-        padding-bottom: 20px;
       }
     }
   </style>
