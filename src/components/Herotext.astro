@@ -8,6 +8,7 @@ import Knap from "./Knap.astro";
     <h2 class="enameltext">ENAMEL SS25</h2>
     <h2 class="collectiontext">COLLECTION.</h2>
     <p>Oplev en kollektion skabt til at fremhæve din naturlige elegance. ENAMEL SS25 kombinerer tidløst design med moderne detaljer perfekt til både hverdag og særlige anledninger. Hver smykke er håndlavet med omtanke og fremstillet i materialer af høj kvalitet. Gør dit look personligt og uforglemmeligt.</p>
+
     <a href="/productlist?brand=Enamel">SHOP ENAMEL</a>
   </div>
 </div>
@@ -41,19 +42,18 @@ import Knap from "./Knap.astro";
     padding-right: 20px;
   }
   .herotextbox a {
-    padding-left: 20px;
-    text-decoration: none;
+    border: 2px solid;
     color: #343434;
     display: inline-block;
     /* border-radius: 10px; */
-    border: 2px solid;
     margin-left: 20px;
-    margin-right: 540px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     margin-bottom: 30px;
     margin-top: 30px;
-    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
   }
 
   @media (max-width: 800px) {
@@ -61,17 +61,6 @@ import Knap from "./Knap.astro";
       display: initial;
     }
     .herotextbox a {
-      padding-left: 20px;
-      text-decoration: none;
-      color: #343434;
-      display: inline-block;
-      border: 2px solid;
-      margin-left: 20px;
-      margin-right: 445px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-      text-align: left;
     }
   }
 </style>
