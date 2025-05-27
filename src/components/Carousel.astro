@@ -18,11 +18,24 @@ import Product from "./Product.astro";
     /* overflow: hidden; */
     padding: 3rem;
   }
-  .grid-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 400px; /* eller en anden fast bredde */
-    gap: 20px;
-    transition: transform 0.3s ease;
+
+  @media (min-width: 800px) {
+    .grid-container {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 400px; /* eller en anden fast bredde */
+      gap: 20px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .grid-container {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 240px; /* eller en anden fast bredde */
+      gap: 20px;
+      transition: transform 0.3s ease;
+    }
   }
 </style>
