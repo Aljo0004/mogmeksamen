@@ -1,26 +1,34 @@
 ---
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const { data, error } = await supabase.from("Smykker").select("id, name, price, category, brand, image_url, material").eq("id", productId).single();
+const { data, error } = await supabase.from("Smykker").select("id, category, brand, image_url, name, price, slug");
 ---
 
-<div class="productImg">
-  <img class="productInnerImg" src={product.image_url} alt={product.name} />
-</div>
-<div class="info">
-  <h2 class="productBoxName">{product.name}</h2>
-  <p class="pris">{product.price} DKK</p>
-</div>
-<div class="container">
-  <p class="button">LÆS MERE</p>
-</div>
-<div class="container">
-  <img class="button_line" src="footer/line.webp" alt="sort linje" />
-</div>
+{
+  data.map((product) => (
+    <a href={`/product.html?id=${product.id}`}>
+      <div class="productBox">
+        <div class="productImg">
+          <img class="productInnerImg" src={product.image_url} alt="{product.name}" />
+        </div>
+        <div class="info">
+          <h2 class="productBoxName">{product.name}</h2>
+          <p class="pris">{product.price} DKK</p>
+        </div>
+        <div class="container">
+          <p class="button">LÆS MERE</p>
+        </div>
+        <div class="container">
+          <img class="button_line" src="footer/line.webp" alt="sort linje" />
+        </div>
+      </div>
+    </a>
+  ))
+}
 
 <style>
   /******************* STYLE *******************/
