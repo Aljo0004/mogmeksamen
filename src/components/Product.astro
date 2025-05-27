@@ -1,36 +1,92 @@
----
-import { createClient } from "@supabase/supabase-js";
+<script type="module">
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
-const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
-const { data, error } = await supabase.from("Smykker").select("id, category, brand, image_url, name, price, slug");
----
+  function createProductElement(product) {
+    const link = document.createElement("a");
+    link.href = `/product.html?id=${product.id}`;
 
-{
-  data.map((product) => (
-    <a href={`/product.html?id=${product.id}`}>
-      <div class="productBox">
-        <div class="productImg">
-          <img class="productInnerImg" src={product.image_url} alt="{product.name}" />
-        </div>
-        <div class="info">
-          <h2 class="productBoxName">{product.name}</h2>
-          <p class="pris">{product.price} DKK</p>
-        </div>
-        <div class="container">
-          <p class="button">LÆS MERE</p>
-        </div>
-        <div class="container">
-          <img class="button_line" src="footer/line.webp" alt="sort linje" />
-        </div>
+    const box = document.createElement("div");
+    box.className = "productBox";
+
+    box.innerHTML = `
+      <div class="productImg">
+        <img class="productInnerImg" src="${product.image_url}" alt="${product.name}" />
       </div>
-    </a>
-  ))
-}
+      <div class="info">
+        <h2 class="productBoxName">${product.name}</h2>
+        <p class="pris">${product.price} DKK</p>
+      </div>
+      <div class="container">
+        <p class="button">LÆS MERE</p>
+      </div>
+      <div class="container">
+        <img class="button_line" src="footer/line.webp" alt="sort linje" />
+      </div>
+    `;
 
-<style>
+    link.appendChild(box);
+    return link;
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    // Support both grid_3 (product page) and grid_4 (main page)
+    const containers = [...document.querySelectorAll(".grid_3, .grid_4")];
+
+    if (containers.length === 0) {
+      console.error("No product containers (.grid_3 or .grid_4) found.");
+      return;
+    }
+
+    // Optionally show loading message in all containers
+    containers.forEach(container => {
+      container.innerHTML = "<p>Indlæser produkter...</p>";
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    const brand = params.get("brand");
+    const material = params.get("material");
+
+    let query = supabase.from("Smykker").select("*");
+
+    if (category) query = query.eq("category", category);
+    if (brand) query = query.eq("brand", brand);
+    if (material) query = query.eq("material", material);
+
+    const { data, error } = await query;
+
+    if (error) {
+      containers.forEach(container => {
+        container.innerHTML = "<p>Fejl ved hentning af produkter.</p>";
+      });
+      console.error("Supabase error:", error);
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      containers.forEach(container => {
+        container.innerHTML = "<p>Ingen produkter fundet.</p>";
+      });
+      return;
+    }
+
+    containers.forEach(container => {
+      container.innerHTML = ""; // Clear loading text
+      data.forEach(product => {
+        container.appendChild(createProductElement(product));
+      });
+    });
+  });
+</script>
+
+
+
+
+<style is:global>
   /******************* STYLE *******************/
   * {
     margin: 0;
