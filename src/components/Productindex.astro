@@ -1,0 +1,163 @@
+---
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const { data, error } = await supabase.from("Smykker").select("id, name, price, category, brand, image_url, material").eq("id", productId).single();
+---
+
+<div class="productImg">
+  <img class="productInnerImg" src={product.image_url} alt={product.name} />
+</div>
+<div class="info">
+  <h2 class="productBoxName">{product.name}</h2>
+  <p class="pris">{product.price} DKK</p>
+</div>
+<div class="container">
+  <p class="button">LÆS MERE</p>
+</div>
+<div class="container">
+  <img class="button_line" src="footer/line.webp" alt="sort linje" />
+</div>
+
+<style>
+  /******************* STYLE *******************/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /******************* Productcard *******************/
+
+  .productBoxName {
+    font-size: 120%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #343434;
+  }
+  @media (min-width: 800px) {
+    .productBox {
+      position: relative;
+      border-radius: 0px;
+      background-color: #ffffff;
+      justify-content: center;
+      align-items: center;
+    }
+    .productImg {
+      overflow: hidden;
+      background-color: #e3ded6;
+      width: 100%;
+      max-width: 100%;
+      height: 450px;
+      object-fit: contain;
+      object-position: center;
+      padding: 30px;
+      display: flex;
+      justify-content: center; /* horisontal centrering */
+      align-items: center; /* vertikal centrering */
+    }
+    .productInnerImg:hover {
+      scale: 1.1;
+      filter: brightness(1.05);
+      transition: 0.5s;
+    }
+    .info {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .productInnerImg {
+      width: auto;
+      height: auto;
+      scale: 2.4;
+      transform: translate(0, 20%);
+      transition:
+        scale ease-in 0.2s,
+        filter ease-in 0.2s;
+    }
+    .productInnerImg:hover {
+      scale: 2.5;
+      filter: brightness(1.05);
+    }
+
+    .productImg {
+      overflow: hidden;
+      background-color: #e3ded6;
+      width: 100%;
+      max-width: 100%;
+      height: 300px;
+      padding: 70px;
+      padding-bottom: 140px;
+      display: flex;
+      justify-content: center; /* horisontal centrering */
+      align-items: center; /* vertikal centrering */
+      object-fit: contain;
+      object-position: center;
+    }
+    .productBox {
+      width: 100%;
+    }
+    .info {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      gap: 20px;
+      display: flex;
+      flex-direction: flex-end;
+      justify-content: space-between;
+    }
+  }
+  /**************** BUTTON ***************** */
+  @media (min-width: 800px) {
+    .button_line {
+      width: 18%;
+      height: 18%;
+    }
+
+    .button {
+      background-color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      border: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1dvw;
+      color: #343434;
+    }
+  }
+  @media (max-width: 800px) {
+    .button_line {
+      width: 30%;
+      height: 30%;
+    }
+
+    .button {
+      background-color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      border: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 2.4dvw;
+      color: #343434;
+    }
+  }
+
+  .container {
+    display: flex;
+  }
+</style>
