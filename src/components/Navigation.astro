@@ -1,26 +1,5 @@
 ---
-// import { createClient } from "@supabase/supabase-js";
 
-// const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
-// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
-// const supabase = createClient(supabaseUrl, supabaseKey);
-
-// const url = Astro.url;
-// const category = url.searchParams.get("category");
-// const brand = url.searchParams.get("brand");
-// const material = url.searchParams.get("material");
-
-// let query = supabase.from("Smykker").select("brand, category, material");
-
-// if (category) {
-//   query = query.eq("category", category);
-// }
-// if (brand) {
-//   query = query.eq("brand", brand);
-// }
-// if (material) {
-//   query = query.eq("material", material);
-// }
 ---
 
 <nav>
@@ -72,7 +51,6 @@
       <a href="#">BRANDS</a>
       <div class="dropdown">
         <div class="brands_container">
-
           <a href="/productlist?brand=Jane Kønig"><img class="brands_img" src="/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
           <a href="/productlist?brand=Maria Black"><img class="brands_img" src="/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
           <a href="/productlist?brand=Enamel"><img class="brands_img" src="/brand_logo/logo_enamel.webp" alt="idk" /></a>
@@ -94,8 +72,6 @@
     </div>
   </div>
 </nav>
-
-
 
 <style>
   nav {
@@ -142,7 +118,11 @@
 
   @media (min-width: 800px) {
     .kategorip {
-      padding-left: 20px;
+      /* padding-left: 20px; */
+      padding-top: 20px;
+    }
+    .shop_overskrift {
+      padding-left: 50px;
     }
     .menu_item:hover .dropdown {
       display: flex;
@@ -197,6 +177,7 @@
       grid-template-rows: auto auto;
       max-height: 300px;
       padding-left: 50px;
+      padding-top: 50px;
     }
 
     .shop_img {
@@ -230,6 +211,14 @@
       width: 100%;
       top: 94px;
       left: 0;
+    }
+    .kategorip {
+      /* padding-left: 20px; */
+      padding-top: 20px;
+      margin: 0;
+    }
+    .shop_overskrift {
+      padding-left: 100px;
     }
     .linep {
       display: none;
@@ -317,7 +306,7 @@
     .shop_categoryimg img {
       max-height: 100px;
       width: auto;
-      padding-right: 75px;
+      padding-left: 75px;
     }
     .armband_img {
       height: 60px;
@@ -346,7 +335,7 @@
     .brands_container img {
       max-height: 100px;
       width: auto;
-      margin-right: 111px;
+      margin-left: 100px;
     }
   }
 </style>
