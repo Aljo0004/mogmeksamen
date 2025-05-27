@@ -24,7 +24,7 @@
         <p class="button">LÆS MERE</p>
       </div>
       <div class="container">
-        <img class="button_line" src="footer/line.webp" alt="sort linje" />
+        <img class="button_line" src="/footer/line.webp" alt="sort linje" />
       </div>
     `;
 
@@ -42,7 +42,7 @@
     }
 
     // Optionally show loading message in all containers
-    containers.forEach(container => {
+    containers.forEach((container) => {
       container.innerHTML = "<p>Indlæser produkter...</p>";
     });
 
@@ -60,7 +60,7 @@
     const { data, error } = await query;
 
     if (error) {
-      containers.forEach(container => {
+      containers.forEach((container) => {
         container.innerHTML = "<p>Fejl ved hentning af produkter.</p>";
       });
       console.error("Supabase error:", error);
@@ -68,23 +68,20 @@
     }
 
     if (!data || data.length === 0) {
-      containers.forEach(container => {
+      containers.forEach((container) => {
         container.innerHTML = "<p>Ingen produkter fundet.</p>";
       });
       return;
     }
 
-    containers.forEach(container => {
+    containers.forEach((container) => {
       container.innerHTML = ""; // Clear loading text
-      data.forEach(product => {
+      data.forEach((product) => {
         container.appendChild(createProductElement(product));
       });
     });
   });
 </script>
-
-
-
 
 <style is:global>
   /******************* STYLE *******************/
