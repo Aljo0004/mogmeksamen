@@ -1,3 +1,28 @@
+---
+// import { createClient } from "@supabase/supabase-js";
+
+// const supabaseUrl = "https://olgdezpwcjemxrzdooqe.supabase.co";
+// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZ2RlenB3Y2plbXhyemRvb3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMjU4NDUsImV4cCI6MjA2MjcwMTg0NX0.zy5xEnxNoBJ3XFd_VH7m91OHqYpznBRs4VMNIqca3YM";
+// const supabase = createClient(supabaseUrl, supabaseKey);
+
+// const url = Astro.url;
+// const category = url.searchParams.get("category");
+// const brand = url.searchParams.get("brand");
+// const material = url.searchParams.get("material");
+
+// let query = supabase.from("Smykker").select("brand, category, material");
+
+// if (category) {
+//   query = query.eq("category", category);
+// }
+// if (brand) {
+//   query = query.eq("brand", brand);
+// }
+// if (material) {
+//   query = query.eq("material", material);
+// }
+---
+
 <nav>
   <div class="menu">
     <div class="menu_item">
@@ -7,7 +32,10 @@
         <div class="shop_categories">
           <div class="shop_overskrift">
             <h2>ALLE SMYKKER <br /> NYHEDER</h2>
-            <p class="pategorip">KATEGORIER</p>
+            <div class="kategorip">
+              <p>KATEGORIER</p>
+              <div class="linep"></div>
+            </div>
           </div>
           <div class="shop_categoryimg">
             <div>
@@ -44,6 +72,7 @@
       <a href="#">BRANDS</a>
       <div class="dropdown">
         <div class="brands_container">
+
           <a href="/productlist?brand=Jane Kønig"><img class="brands_img" src="/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
           <a href="/productlist?brand=Maria Black"><img class="brands_img" src="/brand_logo/logo_janekoenig.webp" alt="idk" /></a>
           <a href="/productlist?brand=Enamel"><img class="brands_img" src="/brand_logo/logo_enamel.webp" alt="idk" /></a>
@@ -104,8 +133,15 @@
     transform: scale(1.3);
   }
 
+  .linep {
+    width: 20%;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 5px;
+  }
+
   @media (min-width: 800px) {
-    .pategorip {
+    .kategorip {
       padding-left: 20px;
     }
     .menu_item:hover .dropdown {
@@ -119,11 +155,11 @@
       padding-top: 20px;
     }
     .gold_img {
-      height: 60px;
+      height: 135px;
       width: auto;
     }
     .silver_img {
-      height: 60px;
+      height: 135px;
       width: auto;
     }
 
@@ -194,6 +230,9 @@
       width: 100%;
       top: 94px;
       left: 0;
+    }
+    .linep {
+      display: none;
     }
     .menu_item {
       width: 100%;
@@ -285,11 +324,11 @@
       width: auto;
     }
     .gold_img {
-      height: 60px;
+      height: 100px;
       width: auto;
     }
     .silver_img {
-      height: 60px;
+      height: 100px;
       width: auto;
     }
     .brands_container {

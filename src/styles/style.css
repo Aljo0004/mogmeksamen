@@ -22,14 +22,14 @@ body {
 h1 {
   font-family: var(--heading-font);
   font-size: var(--h1-mobile-size);
-  margin: 1rem;
+  /* margin: 1rem; */
   text-align: center;
 }
 
 h2 {
   font-family: var(--heading-font);
   font-size: var(--h2-mobile-size);
-  margin: 1rem;
+  /* margin: 1rem; */
   text-align: left;
 }
 

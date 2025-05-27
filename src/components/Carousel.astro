@@ -3,8 +3,10 @@ import Product from "./Product.astro";
 ---
 
 <div class="carousel">
-  <div class="grid_4">
-    <Product />
+  <div class="grid-wrapper">
+    <div class="grid-container">
+      <Product />
+    </div>
   </div>
 </div>
 
@@ -12,14 +14,28 @@ import Product from "./Product.astro";
   .carousel {
     overflow-x: auto;
   }
+  .grid-wrapper {
+    /* overflow: hidden; */
+    padding: 3rem;
+  }
 
-  .grid_4 {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    overflow-x: hidden;
-    gap: 20px;
-    padding: 2rem;
+  @media (min-width: 800px) {
+    .grid-container {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 400px; /* eller en anden fast bredde */
+      gap: 20px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .grid-container {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 240px; /* eller en anden fast bredde */
+      gap: 20px;
+      transition: transform 0.3s ease;
+    }
   }
 </style>

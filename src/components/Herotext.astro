@@ -7,7 +7,7 @@ import Knap from "./Knap.astro";
   <div class="herotextbox">
     <h2 class="enameltext">ENAMEL SS25</h2>
     <h2 class="collectiontext">COLLECTION.</h2>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores odit sint quod excepturi autem enim sit repudiandae. Consequuntur, quam dicta obcaecati itaque quas perspiciatis est culpa mollitia, sapiente nisi exercitationem.</p>
+    <p>Oplev en kollektion skabt til at fremhæve din naturlige elegance. ENAMEL SS25 kombinerer tidløst design med moderne detaljer perfekt til både hverdag og særlige anledninger. Hver smykke er håndlavet med omtanke og fremstillet i materialer af høj kvalitet. Gør dit look personligt og uforglemmeligt.</p>
     <a href="">SHOP ENAMEL</a>
   </div>
 </div>
@@ -16,7 +16,11 @@ import Knap from "./Knap.astro";
   .herotextbox {
     display: flex;
     flex-direction: column;
-    grid-row: 2/3;
+    /* grid-row: 2/3; */
+    padding-top: 100px;
+  }
+  .herotextbox h2 {
+    margin: 1rem;
   }
   .herotextbox a:hover {
     background-color: #e0f1fe;
@@ -30,10 +34,12 @@ import Knap from "./Knap.astro";
   }
   .herogrid {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
   .herotextbox p {
     padding-left: 20px;
+    line-height: 30px;
+    padding-right: 20px;
   }
   .herotextbox a {
     padding-left: 20px;
@@ -59,10 +65,9 @@ import Knap from "./Knap.astro";
       text-decoration: none;
       color: #343434;
       display: inline-block;
-      border-radius: 10px;
       border: 2px solid;
       margin-left: 20px;
-      margin-right: 450px;
+      margin-right: 340px;
       padding-top: 10px;
       padding-bottom: 10px;
       margin-bottom: 30px;
