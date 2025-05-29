@@ -20,8 +20,9 @@
     const product = data;
     document.getElementById("product-section").innerHTML = `
   <section class="topsection">
-   
-  </section>
+  <button class="button_top"><a href="productlist.html">TILBAGE</a></button>
+</section>
+
 
   <section class="product_section">
     <div class="container product_container">
@@ -209,5 +210,29 @@
   li {
     list-style: none;
     text-decoration: none;
+  }
+
+  /***************** Button *****************/
+  .button_top {
+    background-color: #e3ded6;
+    height: 40px;
+    width: 150px;
+    border: 2px solid #343434;
+    margin-top: 20px;
+  }
+
+  .button_top:hover {
+    background-color: #e0f1fe;
+    height: 40px;
+    width: 150px;
+    border: 2px solid #e0f1fe;
+    margin-top: 20px;
+    transition: 1s;
+  }
+  .button_top a {
+    text-decoration: none;
+    color: var(--dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
   }
 </style>
