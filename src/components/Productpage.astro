@@ -47,9 +47,7 @@
           </li>
           <li class="tags-container">
             <h4>Tags:</h4>
-            <p>${product.brand}</p>
-            <p>,</p>
-            <p>${product.category}</p>
+            <p>${product.brand}, ${product.category}</p>
           </li>
           <li>
             <h4>Model:</h4>
@@ -89,10 +87,11 @@
   .button_line {
     width: 20%;
     height: 20%;
+    display: none;
   }
   .container {
     justify-content: center;
-    text-align: center;
+    text-align: left;
   }
 
   .container button {
@@ -100,6 +99,25 @@
     border: 2px solid #ffffff;
     font-weight: bolder;
     font-size: medium;
+  }
+
+  .container a {
+    border: 2px solid;
+    color: #343434;
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #e0f1fe;
+  }
+  .container a:hover {
+    background-color: #786355;
+    color: #ffffff;
+    transition: 0.2s;
+    border-color: #343434;
   }
   /***************** BILLEDE BOX *****************/
   .box1 {
@@ -131,6 +149,7 @@
   p {
     padding-left: 10px;
   }
+
   /****************** Grid *************************/
 
   @media (min-width: 800px) {
